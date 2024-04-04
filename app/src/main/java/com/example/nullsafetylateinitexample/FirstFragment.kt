@@ -12,7 +12,7 @@ class FirstFragment : Fragment() {
     private var _binding: FragmentFirstBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var address: String
+    //private lateinit var address: String
     // throws UninitializedPropertyAccessException if used before initialization
 
     override fun onCreateView(
@@ -26,8 +26,8 @@ class FirstFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // val a = address
-        address = "Roskilde"
+        val address = "ksdkfsk"
+        //address = "Roskilde"
         binding.textviewFirst.text = address
 
         binding.buttonFirst.setOnClickListener {
@@ -43,9 +43,10 @@ class FirstFragment : Fragment() {
 
     private fun doIt() {
         //val name: String = "Anders"
-        var name: String = "" // Null can not be a value of a non-null type
+        var name: String? = "" // Null can not be a value of a non-null type
         //name = null
-        val length: Int = name.length
+
+        val length: Int? = name?.length
         Log.d("APPLE", length.toString())
 
         val input: String = binding.editTextName.text.toString().trim()
@@ -67,6 +68,7 @@ class FirstFragment : Fragment() {
         // !! convert from String? to String
         // !! programmer responsibility: Risk of NullPointerException
 
-        binding.textviewFirst.text = "name2=$name2 length2=$length2 length3=$length3 length4=$length4"
+        binding.textviewFirst.text =
+            "name2=$name2 length2=$length2 length3=$length3 length4=$length4"
     }
 }
